@@ -25,6 +25,26 @@
         $model->downloadPublicUserTweets($key);
         header('location: ./home.php');
     }
+    if( isset($_POST['search_public_user_csv']) ) {
+        $key = $_POST['key'];
+        $model->downloadCSV($key);
+        header('location: ./home.php');
+    }
+    if( isset($_POST['search_public_user_xls']) ) {
+        $key = $_POST['key'];
+        $model->downloadXLS($key);
+        header('location: ./home.php');
+    }
+    if( isset($_POST['search_public_user_json']) ) {
+        $key = $_POST['key'];
+        $model->downloadJSON($key);
+        header('location: ./home.php');
+    }
+    if( isset($_POST['search_public_user_gd']) ) {
+        $key = $_POST['key'];
+        $_SESSION['user-tweets'] = $model->uploadGoogleDrive($key);
+        header('location:lib\google-drive-api/index.php');
+    }
 
     if( isset($_GET['fetchFollowers']) ) {
         $screen_name = $_GET['fetchFollowers'];
@@ -35,25 +55,25 @@
         $model->getUserData();
     }
 
-    // Download
-    if( isset($_GET['download']) && $_GET['download']==true ) {
-        $type=$_GET['type'];
-        switch ($type) {
-            case "csv":
-                $model->downloadCSV();
-                break;
-            case "xls":
-                $model->downloadXLS();
-                break;
-            case "json":
-                $model->downloadJSON();
-                break;
-            case "google-spread-sheet":
-                $_SESSION['user-tweets'] = $model->uploadGoogleDrive();
-                header('location:lib\google-drive-api/index.php');
-                break;
-        }
-    }
+    // // Download
+    // if( isset($_GET['download']) && $_GET['download']==true ) {
+    //     $type=$_GET['type'];
+    //     switch ($type) {
+    //         case "csv":
+    //             $model->downloadCSV();
+    //             break;
+    //         case "xls":
+    //             $model->downloadXLS();
+    //             break;
+    //         case "json":
+    //             $model->downloadJSON();
+    //             break;
+    //         case "google-spread-sheet":
+    //             $_SESSION['user-tweets'] = $model->uploadGoogleDrive();
+    //             header('location:lib\google-drive-api/index.php');
+    //             break;
+    //     }
+    // }
         
     // Logout
     if( isset($_GET['logout']) && $_GET['logout']==true ) {

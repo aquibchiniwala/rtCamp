@@ -75,23 +75,21 @@
 
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<form method="post" action="./controller.php">
+					<form method="post" action="./controller.php">
 							<input type="text" name="key" class="form-control" placeholder="Search Public User" />
 							<br />
-							<ul class="nav navbar-nav" style="float: right">
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top:15px">DOWNLOAD <i class="fa fa-download" aria-hidden="true"></i> </a>
-									<ul class="dropdown-menu">
-										<li><a class="download" data-value='csv' href="./controller.php?download=true&type=csv">csv</a></li>
-										<li><a class="download" data-value='xls' href="./controller.php?download=true&type=xls">xls</a></li>
-										<li><a class="download" data-value='google-spreadhseet' href="./controller.php?download=true&type=google-spread-sheet">google-spreadhseet</a></li>
-										<li><a class="download" data-value='json' href="./controller.php?download=true&type=json">json</a></li>
-										<li><input type="submit" value="pdf" name="search_public_user" class="btn btn-primary form-control"></li>
-										
-									</ul>
-								</li>
-							</ul>
-						</form>
+							<input type="submit" value="Download PDF " name="search_public_user" class="btn btn-primary form-control"  />
+							<br/>
+							<input type="submit" value="Download CSV" name="search_public_user_csv" class="btn btn-primary form-control"  />
+							<br/>
+							<input type="submit" value="Download XML" name="search_public_user_xml" class="btn btn-primary form-control"  />
+							<br/>
+							<input type="submit" value="Download JSON" name="search_public_user_json" class="btn btn-primary form-control"  />
+							<br/>
+							<input type="submit" value="Download to Google Drive" name="search_public_user_gd" class="btn btn-primary form-control"  />
+							
+						
+					</form>
 					</div>
 					<div class="col-md-4"></div>
 

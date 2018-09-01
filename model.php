@@ -217,10 +217,8 @@
         /**
         * Fetch loginuser tweets and download all tweets ub CSV
         */
-        public function downloadCSV() {
-            $connection = $this->getConnection();
-            $user = $this->getUser($connection);
-            $tweets[] = $this->getUserAllTweets($user->screen_name);
+        public function downloadCSV($screen_name) {
+            $tweets[] = $this->getUserAllTweets($screen_name);
             header("Content-type: text/csv");
             header("Content-Disposition: attachment; filename=followers.csv");
             header("Pragma: no-cache");
@@ -237,10 +235,8 @@
         /**
         * Fetch loginuser tweets and download all tweets ub XLS
         */
-        public function downloadXLS() {
-            $connection = $this->getConnection();
-            $user = $this->getUser($connection);
-            $tweets[] = $this->getUserAllTweets($user->screen_name);
+        public function downloadXLS($screen_name) {
+            $tweets[] = $this->getUserAllTweets($screen_name);
             $excel = new PHPExcel();
             $count = count($tweets);
             $row = 1;
@@ -262,10 +258,8 @@
         /**
         * Fetch loginuser tweets and download all tweets ub JSON
         */
-        public function downloadJSON() {
-            $connection = $this->getConnection();
-            $user = $this->getUser($connection);
-            $tweets[] = $this->getUserAllTweets($user->screen_name);
+        public function downloadJSON($screen_name) {
+            $tweets[] = $this->getUserAllTweets($screen_name);
             header('Content-disposition: attachment; filename=followers.json');
             header('Content-type: application/json');
             header("Pragma: no-cache");
@@ -280,10 +274,8 @@
         /**
         * Fetch loginuser tweets and save in user google drive
         */
-        public function uploadGoogleDrive() {
-            $connection = $this->getConnection();
-            $user = $this->getUser($connection);
-            $tweets = $this->getUserAllTweets($user->screen_name);
+        public function uploadGoogleDrive($screen_name) {
+            $tweets = $this->getUserAllTweets($screen_name);
             return $tweets;
         }
 
